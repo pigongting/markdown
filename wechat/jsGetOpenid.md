@@ -3,7 +3,7 @@
 
 # code 如何获取？
 最终 code 是从 window.location.search 中获取到的，但是默认情况下 window.location.search 中是不存在 code 的，需要调用微信的接口：
-https://open.weixin.qq.com/connect/oauth2/authorize?appid=自定义1位置&redirect_uri=自定义2位置&response_type=code&scope=snsapi_base&state=STATE%23wechat_redirect&connect_redirect=1#wechat_redirect';
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=自定义1位置&redirect_uri=自定义2位置&response_type=code&scope=snsapi_base&state=STATE%23wechat_redirect&connect_redirect=1#wechat_redirect;
 
 ## 这个接口有两个参数需要修改成你自己的：
 1. 自定义1位置：appid（示例：wx51c136eef5a37565）
@@ -26,12 +26,101 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=自定义1位置&redir
 4. 加载完成后，点击 复制链接地址 按钮，会得到附加了 code 的地址：http://hawksharp.vicp.net/app?code=071Z3WC92yXB5O06qgG92YlVC92Z3WCj&state=STATE%23wechat_redirect
 5. 这个接口每次调用，code 都不一样
 
+# ajax 如何发送？
 
+```javascript
+$.ajax({
+  async: false,
+  cache: false,
+  url: '[服务端通过 code 获取 openid 的接口的地址]',
+  data: { code: '[刚刚获取到的 code]' },
+  type: 'GET',
+  // 因为往往移动端和接口分属不同的域名，使用 jsonp 解决跨域问题
+  // jsonp 的值自定义，如果使用 jsoncallback，那么服务器端,要返回一个 jsoncallback 的值对应的对象
+  dataType: 'jsonp',
+  jsonp: 'callback',
+  jsonpCallback: 'callback',
+  timeout: 5000,
+  success: (result) => {
+    if (result != null && Object.prototype.hasOwnProperty.call(result, 'openid') && result.openid !== '') {
+      alert(result.openid);
+    } else {
+      alert(`微信身份识别失败 \n ${result}`);
+      location.href = '[浏览器当前地址（未附加 code 的地址）]';
+    }
+  },
+});
+```
 
+# 前端拿到 openid 后，可以：
 
+1. 保存到 cookie 中
+2. 保存到 localStore 中
+3. 每次请求都将 openid 发送给服务端数据获取接口
 
+# 前端完整代码
 
+```javascript
+/**
+ * 获取 url 中 "?" 符后的字符串并正则匹配
+ * 如：http://xxx.xx.xx?code=aaaa，返回 aaaa
+ * @param {String} name
+ */
+function GetQueryString(name) {
+  let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+  let r = window.location.search.substr(1).match(reg);
+  let context = '';
+  if (r != null) {
+    context = r[2];
+  }
+  reg = null;
+  r = null;
+  return context == null || context === '' || context === 'undefined' ? '' : context;
+}
 
+/**
+ * ajax 成功后的回调函数
+ */
+function callback(result) {
+  if (result != null && Object.prototype.hasOwnProperty.call(result, 'openid') && result.openid !== '') {
+    alert(result.openid);
+  } else {
+    alert(`微信身份识别失败 \n ${result}`);
+    location.href = '[浏览器当前地址（未附加 code 的地址）]';
+  }
+}
+
+$(() => {
+  const accessCode = GetQueryString('code');
+
+  if (accessCode == null) {
+    // fromurl 需要urlencode编码处理
+    const fromurl = location.href;
+    const url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${'自定义1位置'}&redirect_uri=${'自定义2位置'}&response_type=code&scope=snsapi_base&state=STATE%23wechat_redirect&connect_redirect=1#wechat_redirect`;
+    // 打开微信授权页面
+    location.href = url;
+  } else {
+    $.ajax({
+      async: false,
+      cache: false,
+      url: '[服务端通过 code 获取 openid 的接口的地址]',
+      data: { code: '[刚刚获取到的 code]' },
+      type: 'GET',
+      // 因为往往移动端和接口分属不同的域名，使用 jsonp 解决跨域问题
+      // 那么服务器端,要返回一个 jsoncallback 的值对应的对象
+      dataType: 'jsonp',
+      jsonpCallback: 'callback',
+      timeout: 5000,
+      success: (result) => {
+        callback(result);
+      },
+      error: (jqXHR, textStatus, errorThrown) => {
+        alert(textStatus);
+      },
+    });
+  }
+});
+```
 
 
 
