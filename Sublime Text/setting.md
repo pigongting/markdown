@@ -1,6 +1,6 @@
 # 设置主题
 
-1. 安装字体 `Microsoft JhengHei Mono`
+1. 安装字体 `Microsoft JhengHei Mono` 和 `Inconsolata-Regular`
 2. 安装主题 `Theme - One Dark`
 3. 安装文件图标 `A File Icon`
 4. 安装包源码查看器 `PackageResourceViewer`
