@@ -37,33 +37,6 @@
 	```
 
 
-# 修改配色方案
-
-文件路径：`C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages\User\SublimeLinter\Monokai (SL).tmTheme`
-
-## 注释斜体
-
-> 找到 Comment 节点，添加 fontStyle 设置  
-
-```xml
-<dict>
-	<key>name</key>
-	<string>Comment</string>
-	<key>scope</key>
-	<string>comment</string>
-	<key>settings</key>
-	<dict>
-		<key>fontStyle</key>
-		<string>italic</string>
-		<key>foreground</key>
-		<string>#75715E</string>
-	</dict>
-</dict>
-```
-
-
-
-
 
 
 
