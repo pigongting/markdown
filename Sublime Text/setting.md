@@ -100,11 +100,66 @@
   "layer0.opacity": 1.0,
   "dark_content": false
 },
+{
+  "class": "tab_close_button",
+  "settings": ["show_tab_close_buttons"],
+  "layer0.texture": "Theme - Default/common/dark/tab_close.png",
+  "content_margin": [10, 9]
+},
+{
+  "class": "tab_close_button",
+  "parents": [{"class": "tab_control", "attributes": ["!selected"]}],
+  "layer0.opacity": { "target": 0.3, "speed": 4.0, "interpolation": "smoothstep" },
+},
+{
+  "class": "tab_close_button",
+  "parents": [{"class": "tab_control", "attributes": ["selected"]}],
+  "layer0.opacity": { "target": 0.5, "speed": 4.0, "interpolation": "smoothstep" },
+},
+{
+  "class": "tab_close_button",
+  "parents": [{"class": "tab_control", "attributes": ["file_light"]}],
+  "layer0.texture": "Theme - Default/common/light/tab_close.png",
+},
+{
+  "class": "tab_close_button",
+  "parents": [{"class": "tab_control", "attributes": ["dirty"]}],
+  "layer0.texture": "Theme - Default/common/dark/tab_dirty.png",
+},
+{
+  "class": "tab_close_button",
+  "parents": [{"class": "tab_control", "attributes": ["file_light", "dirty"]}],
+  "layer0.texture": "Theme - Default/common/light/tab_dirty.png",
+},
+{
+  "class": "tab_close_button",
+  "attributes": ["hover"],
+  "layer0.texture": "Theme - Default/common/dark/tab_close.png",
+},
+{
+  "class": "tab_close_button",
+  "attributes": ["hover"],
+  "parents": [{"class": "tab_control", "attributes": ["!selected"]}],
+  "layer0.opacity": { "target": 0.6, "speed": 4.0, "interpolation": "smoothstep" },
+},
+{
+  "class": "tab_close_button",
+  "attributes": ["hover"],
+  "parents": [{"class": "tab_control", "attributes": ["selected"]}],
+  "layer0.opacity": { "target": 0.8, "speed": 4.0, "interpolation": "smoothstep" },
+},
+{
+  "class": "tab_close_button",
+  "parents": [{"class": "tab_control", "attributes": ["file_light"]}],
+  "attributes": ["hover"],
+  "layer0.texture": "Theme - Default/common/light/tab_close.png",
+},
 /** 说明
  *  tabset_control 中修改 tab_height
  *  tab_label 中修改 font.size 和 font.face
  *  sidebar_label 中修改 font.size 和 font.face  
  *  sidebar_tree 中修改 row_padding  
+ *  tab_close_button 全部替换为默认的样子
  */
 ```
 
