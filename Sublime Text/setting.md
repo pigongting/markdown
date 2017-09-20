@@ -1,9 +1,23 @@
 # 设置主题
 
+## 准备
+
 1. 安装字体 `Microsoft JhengHei Mono` 和 `Inconsolata-Regular`
 2. 安装主题 `Theme - One Dark`
 3. 安装文件图标 `A File Icon`
 4. 安装包源码查看器 `PackageResourceViewer`
+
+
+## 选择主题
+
+> 在 Sublime Text 中，`Preferences -> Theme...`  
+> 在列表中选择 `One Dark.sublime-theme`
+
+
+## 选择颜色方案
+
+> 在 Sublime Text 中，`Preferences -> Color Scheme...`  
+> 在列表中选择 `One Dark (SL)`
 
 
 ## 修改设置文件
@@ -42,13 +56,6 @@
  *  show_scroll_tabs 和 show_tabs_dropdown 只能用于 Sublime Text3
  */
 ```
-
-## 下载主题源码
-
-	> 源码地址：https://github.com/andresmichel/one-dark-theme
-	> 下载后解压到当前文件夹
-	> 进入文件夹 `one-dark-theme-1.3.4`，将内容放到 `C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages\Theme - One Dark` 文件夹（遇到替换时，不替换）
-	> 修改 tab_selected.png 和 tab_unselected.png
 
 
 ## 打开主题文件
@@ -164,6 +171,19 @@
 ```
 
 
+## 进入主题文件夹
+
+1. 注意：保存修改主题文件后 Theme - One Dark 文件夹才会出现
+2. 路径：`C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages\Theme - One Dark`
+3. 创建 assets 文件夹
+
+
+## 下载主题源码
+
+	> 源码地址：https://github.com/andresmichel/one-dark-theme
+	> 下载后解压到当前文件夹
+	> 进入文件夹 `one-dark-theme-1.3.4`，发展 tab_selected.png 和 tab_unselected.png 图片到 assets 文件夹
+	> 修改 tab_selected.png 和 tab_unselected.png
 
 
 
