@@ -34,7 +34,7 @@
 		"Vintage"
 	],
 	"theme": "One Dark.sublime-theme",
-	"binary_file_patterns": [".git/", ".svn/", ".sass-cache/", "node_modules/", "bower_components/", "dist/"],
+	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "dist"],
 	"animation_enabled": false,
 	"caret_extra_bottom": 1,
 	"caret_extra_top": 2,
