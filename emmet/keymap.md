@@ -1,3 +1,7 @@
+# 支持 JSX
+  > 将 https://gist.github.com/wesbos/2bb4a6998635df97c748 中的内容添加到 Preferences->Key Bindings
+
+
 # HTML
 
 ## 移除标签 `shift+ctrl+;`

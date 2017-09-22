@@ -25,6 +25,7 @@
     - Theme - One Dark
     - Babel
     - Better Less
+    - Emmet
     - Expand Selection to Quotes
     - PackageResourceViewer
 
