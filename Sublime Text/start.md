@@ -175,10 +175,10 @@
 
     ```javascript
     {
-       // 字体
-       "font_face": "Microsoft JhengHei Mono",
-       // 字号
-       "font_size": 13,
+      // 字体
+      "font_face": "Microsoft JhengHei Mono",
+      // 字号
+      "font_size": 13,
       //在 Goto Anything（Ctrl+P） 或 Find in Files（Ctrl+Shift+F） 时，排除以下规则匹配的文件
       "binary_file_patterns": ["node_modules/*", "dist/*", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
       // 缩进尺寸
