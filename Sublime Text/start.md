@@ -1,9 +1,12 @@
 # 安装插件
 
-1. 下载并安装 Sublime Text 3 (Build 3143) 不要升级上来的
+1. 卸载旧版本，使用 Everything 搜索 sublime 关键字，删除所有相关内容
+
+2. 下载并安装 Sublime Text 3 (Build 3143) 不要升级上来的
+    > 首页下载的有问题，从内页下载：http://www.sublimetext.com/3
 
 
-2. 安装 Package Control
+3. 安装 Package Control
     > 网址：https://packagecontrol.io/installation
     > 在 Sublime Text 3 中菜单 View->Show Console 打开控制台
     > 复制网站中 SUBLIME TEXT 3 选项卡下方的内容，粘贴到控制台，并回车执行。如：
@@ -15,7 +18,7 @@
     > 验证执行结果：Ctrl+Shift+P，在输入框中输入 Package Control
 
 
-3. 安装插件
+4. 安装插件
     - SublimeLinter
     - SublimeLinter-contrib-eslint
     - A File Icon
@@ -26,7 +29,7 @@
     - PackageResourceViewer
 
 
-4. 配置主题
+5. 配置主题
 
     1. 确认系统安装了字体：`Microsoft JhengHei Mono` 和 `Inconsolata-Regular`
     2. 选择主题
@@ -78,7 +81,7 @@
           "class": "sidebar_label",
           "color": [157, 165, 180],
           "font.bold": false,
-          "font.size": 17,
+          "font.size": 15,
           "font.face": "Inconsolata-Regular",
           "font.italic": false,
           "shadow_color": [0, 0, 0, 0],
@@ -86,7 +89,7 @@
         },
         {
           "class": "sidebar_tree",
-          "row_padding": [8, 8],
+          "row_padding": [8, 5],
           "indent": 17,
           "indent_offset": 14,
           "indent_top_level": false,
@@ -150,13 +153,13 @@
         },
         ```
 
-    2. 进入主题文件夹
+    2. 进入主题文件夹（新版本已经更新了，不需要修改了）
 
         > 1. 注意：保存修改主题文件后 Theme - One Dark 文件夹才会出现
         > 2. 路径：`C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages\Theme - One Dark`
         > 3. 创建 assets 文件夹
 
-    3. 修改图片
+    3. 修改图片（新版本已经更新了，不需要修改了）
 
         > 1. 下载源码：https://github.com/andresmichel/one-dark-theme
         > 2. 下载后解压到当前文件夹
