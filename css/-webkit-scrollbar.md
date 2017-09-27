@@ -90,6 +90,46 @@
 ::-webkit-scrollbar-button:horizontal:decrement:hover {}
 ```
 
+```css
+::-webkit-scrollbar{
+  width: 17px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-clip:padding-box;
+  border-left:6px solid transparent;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10), inset 0 -1px 0 rgba(0,0,0,0.07);
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color:rgba(0,0,0,0.4);
+  -webkit-box-shadow:inset 1px 1px 1px rgba(0,0,0,0.25);
+}
+
+::-webkit-scrollbar-thumb:active{
+  background-color:rgba(0,0,0,0.5);
+  -webkit-box-shadow:inset 1px 1px 3px rgba(0,0,0,0.35);
+}
+
+::-webkit-scrollbar-track{
+  background-clip:padding-box;
+  border:solid transparent;
+  border-width:0 0 0 6px;
+}
+
+::-webkit-scrollbar-track:hover{
+  background-color:rgba(0,0,0,0.035);
+  -webkit-box-shadow:inset 1px 0 0 rgba(0,0,0,0.1);
+  box-shadow:inset 1px 0 0 rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-track:active{
+  background-color:rgba(0,0,0,0.05);
+  -webkit-box-shadow:inset 1px 0 0 rgba(0,0,0,0.14),inset -1px 0 0 rgba(0,0,0,0.07);
+  box-shadow:inset 1px 0 0 rgba(0,0,0,0.14),inset -1px 0 0 rgba(0,0,0,0.07);
+}
+```
 
 
 ```css
