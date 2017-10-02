@@ -24,7 +24,7 @@
     - A File Icon
     - Theme - One Dark
     - Babel
-    - Better Less
+    - Less
     - Emmet
     - Expand Selection to Quotes
     - PackageResourceViewer
@@ -50,14 +50,8 @@
         > 2. 接着输入 `Theme - One Dark` 回车进入
         > 3. 找到文件 `One Dark.sublime-theme` 回车打开
 
-        ```json
-        /** 说明
-         *  tabset_control 中修改 tab_height
-         *  tab_label 中修改 font.size 和 font.face
-         *  sidebar_label 中修改 font.size 和 font.face  
-         *  sidebar_tree 中修改 row_padding  
-         *  tab_close_button 全部替换为默认的样子
-         */
+        ```javascript
+        /* tabset_control 中修改 tab_height */
         {
           "class": "tabset_control",
           "layer0.texture": "Theme - One Dark/assets/tab_panel_bg.png",
@@ -69,6 +63,7 @@
           "tab_height": 30,
           "mouse_wheel_switch": false
         },
+        /* tab_label 中修改 font.size 和 font.face */
         {
           "class": "tab_label",
           "fg": [157, 165, 180, 154],
@@ -78,6 +73,7 @@
           "font.size": 15,
           "font.face": "Inconsolata-Regular"
         },
+        /* sidebar_label 中修改 font.size 和 font.face */
         {
           "class": "sidebar_label",
           "color": [157, 165, 180],
@@ -88,6 +84,7 @@
           "shadow_color": [0, 0, 0, 0],
           "shadow_offset": [0, 0]
         },
+        /* sidebar_tree 中修改 row_padding */
         {
           "class": "sidebar_tree",
           "row_padding": [8, 5],
@@ -98,6 +95,7 @@
           "layer0.opacity": 1.0,
           "dark_content": false
         },
+        /* tab_close_button 全部替换为默认的样子 */
         {
           "class": "tab_close_button",
           "settings": ["show_tab_close_buttons"],
@@ -180,7 +178,7 @@
       // 字号
       "font_size": 13,
       //在 Goto Anything（Ctrl+P） 或 Find in Files（Ctrl+Shift+F） 时，排除以下规则匹配的文件
-      "binary_file_patterns": ["node_modules/*", "dist/*", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
+      "binary_file_patterns": ["node_modules/*", "dist/*", "*.ai", "*.eps", "*.psd", "*.svg", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
       // 缩进尺寸
       "tab_size": 2,
       // 转换缩进为空格
@@ -193,7 +191,6 @@
       "caret_style": "blink",
       "draw_white_space": "none",
       "ensure_newline_at_eof_on_save": true,
-      "highlight_line": true,
       "line_padding_bottom": 1,
       "line_padding_top": 2,
       "margin": 0,
