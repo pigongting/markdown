@@ -21,13 +21,14 @@
 4. 安装插件
     - SublimeLinter
     - SublimeLinter-contrib-eslint
-    - A File Icon
-    - Theme - One Dark
     - Babel
     - Less
     - Emmet
     - Expand Selection to Quotes
+    - Theme - One Dark
     - PackageResourceViewer
+    - Markdown Light
+    - A File Icon
 
 
 5. 配置主题
