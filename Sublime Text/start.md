@@ -3,8 +3,6 @@
 1. 卸载旧版本，使用 Everything 搜索 sublime 关键字，删除所有相关内容
 
 2. 下载并安装 Sublime Text 3 (Build 3143) 不要升级上来的
-    > 首页下载的有问题，从内页下载：http://www.sublimetext.com/3
-
 
 3. 安装 Package Control
     > 网址：https://packagecontrol.io/installation
@@ -178,7 +176,7 @@
       "font_face": "Microsoft JhengHei Mono",
       // 字号
       "font_size": 13,
-      //在 Goto Anything（Ctrl+P） 或 Find in Files（Ctrl+Shift+F） 时，排除以下规则匹配的文件
+      //在 Goto Anything（Ctrl+P） 或 Find in Files...（Ctrl+Shift+F） 时（不是 Find in Folder...），排除以下规则匹配的文件
       "binary_file_patterns": ["node_modules/*", "dist/*", "*.ai", "*.eps", "*.psd", "*.svg", "*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
       // 缩进尺寸
       "tab_size": 2,
