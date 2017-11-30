@@ -76,9 +76,9 @@ const element = <img src={user.avatarUrl}></img>;
 
 在属性中嵌入 JavaScript 表达式时，不要用引号把花括号括起来。您应该使用引号（用于字符串值）或大括号（用于表达式），但不能在同一个属性中两个都使用。
 
-> ## 警告：
-> 由于 JSX 相比于 HTML 更接近 JavaScript，React DOM 使用驼峰格式为属性命名，而不是 HTML 属性命名方式称。
-> 例如，class 在 JSX 中变成 className，而 tabindex 变成 tabIndex。
+> ## 警告：  
+> 由于 JSX 相比于 HTML 更接近 JavaScript，React DOM 使用驼峰格式为属性命名，而不是 HTML 属性命名方式称。  
+> 例如，class 在 JSX 中变成 className，而 tabindex 变成 tabIndex。  
 
 ## 使用 JSX 指定子元素
 
@@ -112,10 +112,47 @@ const element = <h1>{title}</h1>;
 默认情况下，React DOM 在渲染之前[转义](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html)嵌入在 JSX 中的任何值。因此，它可以确保您永远不会注入任何未明确写入您的应用程序的东西。在呈现之前，所有内容都被转换为字符串。这有助于防止 [XSS（跨站脚本）攻击](https://en.wikipedia.org/wiki/Cross-site_scripting)。
 
 
+## JSX 表示对象
 
+Babel 将 JSX 编译成 React.createElement() 调用。
 
+这两个例子是相同的：
 
+```js
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
 
+```js
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+React.createElement() 执行一些检查来帮助您编写无错代码，但本质上它创建了一个像这样的对象：
+
+```js
+// Note: this structure is simplified
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world'
+  }
+};
+```
+
+这些对象被称为 “React 元素”。你可以把它们想象成你想要在屏幕上看到的东西的描述。React 读取这些对象，并使用它们来构建 DOM 并使其保持最新状态。
+
+我们将在下一节探讨将 React 元素渲染到 DOM。
+
+> 提示：  
+> 我们建议您为您选择的编辑器使用 [“Babel” 语言定义](http://babeljs.io/docs/editors)，以便 ES6 和 JSX 代码能够正确的高亮显示。本网站使用与它是兼容的 [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) 颜色方案。
 
 
 
