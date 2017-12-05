@@ -14,9 +14,9 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=自定义1位置&redir
 
 # 示例-曼拓莱测试号
 1. 直接跳转到指定网址并附带 code
-https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc4ae33dcf63a96fa&redirect_uri=https%3A%2F%2Fpigongting.natappvip.cc&response_type=code&scope=snsapi_base&state=123#wechat_redirect
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc4ae33dcf63a96fa&redirect_uri=http%3A%2F%2Fpigongting.natappvip.cc&response_type=code&scope=snsapi_base&state=123#wechat_redirect
 2. 会显示授权页面
-https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc4ae33dcf63a96fa&redirect_uri=https%3A%2F%2Fpigongting.natappvip.cc&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc4ae33dcf63a96fa&redirect_uri=http%3A%2F%2Fpigongting.natappvip.cc&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
 
 
 
