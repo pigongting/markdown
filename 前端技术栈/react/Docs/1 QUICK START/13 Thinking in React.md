@@ -115,25 +115,56 @@ React 中有两种“模型”数据：Props 和 State。理解他们之间的�
 
 [在 CodePen 中查看 Thinking In React: Step 4](https://codepen.io/gaearon/pen/qPrNQZ)
 
-好的，我们已经确定了 app state 的最小设置。下一步，
+好的，我们已经确定了 app state 的最小设置。接下来，我们需要确定哪个组件使这个 state 变化或拥有这个 state。
+
+记住，React 完全是根据组件层次结构的单向数据流。可能不清楚哪个组件应该拥有什么状态。这通常是新手理解的最具挑战性的部分，所以按照这些步骤来弄清楚：
+
+
+对于你的应用程序的 state 的每一块：
+
+- 确定每一个组件基于该 state 渲染一些东西。
+
+- 找到是公共所有者的组件（一个在层次结构上超出了需要该状态的所有组件的组件）
+
+- 无论是公共所有者，或层次结构中更高级别的组件，都应该拥有该 state。
+
+- 如果你不能找到一个有意义的组件来拥有这个 state，为了保存状态可以创建一个新的组件并将其添加到公共所有者组件上方的层次结构中的某处。
+
+
+让我们为我们的应用程序贯穿这个策略：
+
+- `ProductTable`需要基于 state 过滤产品列表，`SearchBar`需要显示搜索文本和选中状态。
+
+- 公共所有者是`FilterableProductTable`。
+
+- 从概念上讲，过滤器文本和选中的值存在于`FilterableProductTable`中是有意义的。
+
+
+所以我们判断我们的 state 在`FilterableProductTable`中。首先，添加一个示例属性`this.state = {filterText: '', inStockOnly: false}`到`FilterableProductTable`的`constructor`中以反映你的应用程序的初始状态。然后，将`filterText`和`inStockOnly`作为属性传递给`ProductTable`和`SearchBar`。最后，我们使用这些属性在`ProductTable`过滤行，并且在`SearchBar`中设置表单域的值。
+
+你可以开始看到你的应用程序的行为：设置`filterText`为`"ball"`并刷新您的应用程序。您将看到数据表格已经正确更新了。
 
 
 
+## 第 5 步：添加反向数据流 Step 5: Add Inverse Data Flow
+
+[在 CodePen 中查看 Thinking In React: Step 5](https://codepen.io/gaearon/pen/LzWZvb)
+
+到目前为止，我们建立了一个 app，那是一个 props 和 state 随着层次结构流下来可以正确渲染的函数。现在，是时候支持数据从另一个方向流动：在层次结构深层的表单组件需要更新`FilterableProductTable`中的 state。
+
+React 使这个数据流清晰易懂，以便理解你的程序是如何工作的，但它确实需要比传统的双向数据绑定更多的代码。
+
+如果您尝试在当前版本的示例中键入或选中该框，你会看到 React 忽略你的输入。这是故意的，因为我们已将 input 的 value 属性设置为始终等于从`FilterableProductTable`传入的状态。
+
+让我们思考一下我们想要发生什么。我们希望确保每当用户更改表单时，我们都会更新状态以反映用户的输入。由于组件只能更新他们自己的状态，`FilterableProductTable`将传递回调函数给`SearchBar`，这个函数将在 state 应该更新的时候触发。我们可以在输入框上使用`onChange`事件来通知它。通过`FilterableProductTable`传递的回调函数将调用`setState()`，并且 app 将被更新。
+
+虽然这听起来很复杂，这实际上只是几行代码。您的数据如何在整个应用程序中流动也很明确。
 
 
 
+## 就是这样
 
-
-
-
-
-
-
-
-
-
-
-
+希望，这给了你一个关于如何考虑用 React 构建组件和应用程序的想法。尽管可能会比以前输入更多地一些内容，但要记住，代码的阅读远远超过编写，阅读这个模块化的，明确的代码非常容易。当您开始构建大型组件库时，你会明白明确性，模块化，和代码重用让你的代码行开始缩小。
 
 
 
