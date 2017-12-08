@@ -163,6 +163,45 @@ new webpack.optimize.UglifyJsPlugin()
 
 ## Chrome 性能选项卡的分析组件 Profiling Components with the Chrome Performance Tab
 
+在开发模式中，您可以使用支持的浏览器中的性能工具，可视化地了解组件如何装载，更新和卸载。例如：
+![React components in Chrome timeline](https://reactjs.org/static/react-perf-chrome-timeline-64d522b74fb585f1abada9801f85fa9d-dcc89.png)
+
+在 Chrome 中执行此操作：
+
+1. 确保你正在开发模式下运行应用程序。
+2. 打开 Chrome DevTools **Performance** 选项卡，然后按 **Record**。
+3. 执行你想要分析的动作。不要超过 20 秒，否则 Chrome 可能会挂起。
+4. 停止录制。
+5. React 事件将被分组在 User Timing 标签下。
+
+有关更详细的演练，请参阅[Ben Schwarz 撰写的这篇文章](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad)。
+
+请注意，这些 **数字是相对的，所以组件的生产环境速度会更快**。不过，这应该可以帮助你了解什么时候不相关的用户界面被错误地更新，用户界面更新的频率和频率有多高。
+
+目前 Chrome，Edge 和 IE 是唯一支持此功能的浏览器，但是我们使用标准的 [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API)，所以我们希望更多的浏览器支持它。
+
+
+
+
+## 虚拟化长列表 Virtualize Long Lists.
+
+如果您的应用程序渲染长数据列表（数百或数千行），我们建议使用称为“视窗”的技术。这种技术在任何给定的时间只渲染行的一小部分，可以显着减少重新渲染组件的时间以及创建 DOM 节点的数量。
+
+[React Virtualized](https://bvaughn.github.io/react-virtualized/) 是一个流行的视窗库。它提供了多个可重用组件，用于显示列表，网格和表格数据。如果你想要更适合你的应用程序特定用例的东西，你也可以创建自己的窗口组件，就像 Twitter 一样。
+
+
+
+
+## 避免和解 Avoid Reconciliation
+
+
+
+
+
+
+
+
+
 
 
 
