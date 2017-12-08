@@ -270,16 +270,73 @@ npm run build
 
 有两种主要的方式来获得库的声明：
 
-**Bundled** - 该库的打包了它自己的声明文件。这对我们是最好的，因为我们所需要做的就是安装库，并且我们可以马上使用。检查库是否有捆绑类型，在项目中查找`index.d.ts`文件。有些库会在`package.json`中的`typings`或`types`字段指定它。
+**Bundled** - 该库捆绑了它自己的声明文件。这对我们来说是最好的，因为我们所需要做的就是安装库，并且我们可以马上使用。检查库是否有捆绑类型，在项目中查找`index.d.ts`文件。有些库会在`package.json`中的`typings`或`types`字段指定它。
 
-**DefinitelyTyped** - DefinitelyTyped 是库的一个巨大的声明库
+**DefinitelyTyped** - DefinitelyTyped 是关于库的一个巨大的声明仓库，该库没有捆绑声明文件。这些声明是由微软和开源贡献者提供的。例如，React 并不捆绑它自己的声明文件。相反，我们可以从 DefinitelyTyped 中获得。为此，请在终端中输入此命令。
+
+```
+# yarn
+yarn add --dev @types/react
+
+# npm
+npm i --save-dev @types/react
+```
+
+**Local Declarations** - 有时你想使用的包不捆绑声明，在 DefinitelyTyped 中也找不到。在这种情况下，我们可以有一个本地声明文件。为此，请在源目录的根目录中创建一个 declarations.d.ts 文件。一个简单的声明可能是这样的：
+```ts
+declare module 'querystring' {
+  export function stringify(val: object): string
+  export function parse(val: string): object
+}
+```
+
+
+
+### TypeScript 和 Create React App 使用 Using TypeScript with Create React App
+
+[react-scripts-ts](https://www.npmjs.com/package/react-scripts-ts)可以自动配置一个`create-react-app`项目来支持 TypeScript。
+
+你可以像这样使用它：
+```
+create-react-app my-app --scripts-version=react-scripts-ts
+```
+
+请注意，这是一个第三方项目，不是 Create React App 的一部分。
+
+你也可以试试[typescript-react-starter](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
+
+你现在已经准备好编码了！我们建议查看以下资源来了解有关 Typescript 的更多信息：
+
+- TypeScript 文档：基本类型 [TypeScript Documentation: Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+
+- TypeScript 文档：从 Javascript 迁移 [TypeScript Documentation: Migrating from Javascript](http://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+
+- TypeScript 文档：React 和 Webpack [TypeScript Documentation: React and Webpack](http://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
 
 
 
 
+## Reason
+
+[Reason](https://reasonml.github.io/)不是一种新的语言；这是一个由经过测试的语言 [OCaml](http://ocaml.org/) 提供支持的新语法和工具链。Reason 使 OCaml 成为面向 JavaScript 程序员的熟悉语法，并迎合现在已知的 NPM/Yarn 工作流程。
+
+Reason 是在 Facebook 开发的，并且在其一些产品如 Messenger 中使用。它仍然有点实验性，但它[专用于 React 绑定](https://reasonml.github.io/reason-react/)，并由 Facebook 和一个充满活力的[社区](https://reasonml.github.io/community/)维护的。
 
 
 
+
+## Kotlin
+
+[Kotlin](https://kotlinlang.org/) 是由 JetBrains 开发的静态类型语言。其目标平台包括 JVM，Android，LLVM 和 JavaScript。
+
+JetBrains 专门为 React 社区开发和维护了几个工具： [React bindings](https://github.com/JetBrains/kotlin-wrappers) 以及 [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app)。后者可以帮助您开始使用 Kotlin 构建 React 应用程序，而不需要构建配置。
+
+
+
+
+## 其他语言
+
+请注意，还有其他静态类型的语言可以编译成 JavaScript，并且和 React 是兼容的。例如， [F#/Fable](http://fable.io/) 和 [elmish-react](https://fable-elmish.github.io/react)。查看他们各自的网站了解更多信息，并随意添加更多与 React 一起工作的静态类型语言到这个页面！
 
 
 
