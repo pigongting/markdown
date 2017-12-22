@@ -194,6 +194,14 @@ new webpack.optimize.UglifyJsPlugin()
 
 ## 避免和解 Avoid Reconciliation
 
+React 构建并维护渲染的 UI 的内部表示。它包含从组件返回的 React 元素。这个表示让 React 避免超出必要的创建 DOM 节点和访问现有的 DOM 节点，因为这可能比 JavaScript 对象上的操作慢。有时它被称为“虚拟DOM”，但是它在 React Native 上的工作方式也是一样的。
+
+当一个组件的属性或状态发生变化时，React 通过比较新返回的元素和先前渲染的元素来决定是否需要实际的 DOM 更新。当它们不相等时，React 将更新 DOM。
+
+在某些情况下，
+
+
+
 
 
 
