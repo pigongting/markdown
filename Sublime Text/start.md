@@ -212,8 +212,33 @@
         > 打开一个 js 文件
         > 菜单->View->Syntax->Open all with current extension as...->Babel->JavaScript(Babel)
 
-
-
+7. 快捷键设置 Preferences -> Key Bindings
+    ```json
+    [
+        {
+            "keys": ["tab"], 
+            "command": "expand_abbreviation_by_tab", 
+            "context": [
+                {
+                    "operand": "source.js", 
+                    "operator": "equal", 
+                    "match_all": true, 
+                    "key": "selector"
+                },{
+                    "key": "preceding_text", 
+                    "operator": "regex_contains", 
+                    "operand": "(\\b(a\\b|div|span|p\\b|button)(\\.\\w*|>\\w*)?)", 
+                    "match_all": true
+                },{
+                    "key": "selection_empty", 
+                    "operator": "equal", 
+                    "operand": true, 
+                    "match_all": true
+                }
+            ]
+        },
+    ]
+    ```
 
 
 
